@@ -94,7 +94,7 @@ function ConfigScene:render()
 	love.graphics.setColor(1, 1, 1, 1)
 	love.graphics.print("AUDIO SETTINGS", 80, 43)
 	local b = cursorHighlight(20, 40, 50, 30)
-	love.graphics.setFont(font_3x5_2)
+	love.graphics.setFont(font_8x11_small) -- VitaFix
 	love.graphics.print("(THIS WILL NOT BE STORED IN REPLAYS)", 80, 80)
 
 	self:renderSettings()

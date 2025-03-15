@@ -75,9 +75,11 @@ end
 
 function ConfigScene:update()
 	--#region Mouse
-	local x, y = getScaledDimensions(love.mouse.getPosition())
-	for i, slider in pairs(self.sliders) do
-		slider:update(x, y)
+	if love.mouse then
+		local x, y = getScaledDimensions(love.mouse.getPosition())
+		for i, slider in pairs(self.sliders) do
+			slider:update(x, y)
+		end
 	end
 	--#endregion
 	if self.das_up or self.das_down then
@@ -124,7 +126,7 @@ function ConfigScene:renderSettings()
 	love.graphics.setColor(1, 1, 1, 0.5)
 	love.graphics.rectangle("fill", 25, self.option_pos_y[self.highlight] - 2, self.options_width + 20, 22)
 
-	love.graphics.setFont(font_3x5_2)
+	love.graphics.setFont(font_8x11_small) -- VitaFix
 	for i, option in ipairs(self.options) do
 		love.graphics.setColor(1, 1, 1, 1)
 		love.graphics.printf(option.display_name, 40, self.option_pos_y[i], self.options_width, "left")
@@ -175,8 +177,10 @@ function ConfigScene:changeValue(by)
 	if option.type == "slider" then
 		local sld = self.sliders[option.config_name]
 		sld.value = math.max(0, math.min(sld.max, (sld:getValue() + by - sld.min))) / (sld.max - sld.min)
-		local x, y = getScaledDimensions(love.mouse.getPosition())
-		sld:update(x, y)
+		if love.mouse then
+			local x, y = getScaledDimensions(love.mouse.getPosition())
+			sld:update(x, y)
+		end
 	elseif option.type == "options" then
 		config[self.config_type][option.config_name] = Mod1(config[self.config_type][option.config_name]+by, #option.options)
 	else

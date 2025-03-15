@@ -120,6 +120,7 @@ function TitleScene:render()
 	love.graphics.setFont(font_3x5_4)
 	love.graphics.setColor(1, 1, 1, 1 - self.snow_bg_opacity)
 	drawBackground("title_no_icon") -- title, title_night
+	enter_pressed = true;
 
 	love.graphics.setColor(1, 1, 1, 1)
 	if not enter_pressed then
@@ -128,7 +129,7 @@ function TitleScene:render()
 		if love.timer.getTime() % 2 <= 1 then
 			love.graphics.printf(self.press_enter_text, 80, 360, 480, "center")
 		end
-		love.graphics.setFont(font_3x5_2)
+--		love.graphics.setFont(font_8x11_small) -- VitaFix
 		if not (self.love2d_major == 11 and (self.love2d_minor == 3 or self.love2d_minor == 5)) and not (self.love2d_major == 12 and self.love2d_minor == 0) then
 			love.graphics.printf({{1, 0, 0, 1}, ("LOVE %d.%d is a potentially unstable version for Cambridge in other OS such as macOS or Linux at the moment! Stick to 11.3 or 11.5 for now."):format(self.love2d_major, self.love2d_minor)}, 50, 60, 540, "center")
 		elseif (self.love2d_major == 12 and self.love2d_minor == 0) then
@@ -159,7 +160,7 @@ function TitleScene:render()
 	]]
 	--love.graphics.printf("Thanks for 1 year!", 430, 280, 160, "center")
 
-	love.graphics.setFont(font_3x5_2)
+	love.graphics.setFont(font_8x11_small) -- VitaFix
 	love.graphics.setColor(1, 1, 1, self.snow_bg_opacity)
 	drawBackground("snow")
 

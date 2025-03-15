@@ -21,6 +21,7 @@ function CreditsScene:new()
 			"Joe Zeng",
 			"MillaBasset",
 			"Tetro48",
+			"L0Wigh",
 		},
 		{
 			title = "Project Heads",
@@ -145,7 +146,7 @@ function CreditsScene:render()
 	local align = alignment_table[4-credits_pos]
 
 	love.graphics.setColor(1, 1, 1, 1)
-	drawBackground(19)
+	drawBackground(0)
 
 	love.graphics.setFont(font_3x5_4)
 	love.graphics.printf("Cambridge Credits", text_x, 500 - offset, 320, align)
@@ -155,7 +156,7 @@ function CreditsScene:render()
 	for index, block in ipairs(self.credit_blocks) do
 		love.graphics.setFont(font_3x5_3)
 		love.graphics.printf(block.title, text_x, block.y - offset, 320, align)
-		love.graphics.setFont(font_3x5_2)
+		love.graphics.setFont(font_8x11_small)
 		for key, value in ipairs(block) do
 			love.graphics.printf(value, text_x, block.y + 30 + key * 18 - offset, 320, align)
 		end

@@ -264,7 +264,7 @@ function cursorHoverArea(x,y,w,h)
 		local mouse_x, mouse_y = getScaledDimensions(love.mouse.getPosition())
 		return (mouse_x > x and mouse_x < x+w and mouse_y > y and mouse_y < y+h)
 	else -- VitaFix
-		return (false and false and false and false)
+		return false
 	end
 end
 

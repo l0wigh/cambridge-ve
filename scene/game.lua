@@ -72,7 +72,7 @@ function GameScene:render()
 	self.game:draw(self.paused)
 	if self.game.pause_time > 0 or self.game.pause_count > 0 then
 		love.graphics.setColor(1, 1, 1, 1)
-		love.graphics.setFont(font_3x5_2)
+		love.graphics.setFont(font_8x11_small) -- VitaFix
 		love.graphics.printf(string.format(
 			"%d PAUSE%s (%s)",
 			self.game.pause_count,

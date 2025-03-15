@@ -50,7 +50,7 @@ function ConfigScene:render()
 		love.graphics.setColor(1, 1, 1, 1)
 	end
 
-	love.graphics.setFont(font_3x5_2)
+	love.graphics.setFont(font_8x11_small) -- VitaFix
 	love.graphics.print("Which controls do you want to configure?", 80, 90)
 
 	love.graphics.setColor(1, 1, 1, 0.5)

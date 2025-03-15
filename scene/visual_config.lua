@@ -106,7 +106,7 @@ function ConfigScene:render()
 
 	love.graphics.setFont(font_8x11)
 	love.graphics.print("VISUAL SETTINGS", 80, 43)
-	love.graphics.setFont(font_3x5_2)
+	love.graphics.setFont(font_8x11_small) -- VitaFix
 	love.graphics.print("(THIS WILL NOT BE STORED IN REPLAYS)", 80, 80)
 
 	self:renderSettings()

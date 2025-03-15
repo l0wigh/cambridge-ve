@@ -118,7 +118,7 @@ function TuningScene:render()
 	love.graphics.setFont(font_8x11)
 	love.graphics.print("TUNING SETTINGS", 80, 43)
 
-	love.graphics.setFont(font_3x5_2)
+	love.graphics.setFont(font_8x11_small) -- VitaFix
 	love.graphics.print("These settings will only apply to modes that do not use their\nown tunings. Menu tunings are separate from gameplay tunings.", 80, 80)
 
 	self:renderSettings()

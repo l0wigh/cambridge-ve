@@ -9,7 +9,9 @@ ReplayScene.title = "Replay"
 local savestate_frames = nil
 
 function ReplayScene:new(replay, game_mode, ruleset)
-	love.mouse.setVisible(true)
+	if love.mouse then
+		love.mouse.setVisible(true)
+	end
 	pitchBGM(1)
 	config.gamesettings = replay["gamesettings"]
 	if replay["delayed_auto_shift"] then config.das = replay["delayed_auto_shift"] end
@@ -135,10 +137,10 @@ function ReplayScene:render()
 			love.graphics.setFont(font_3x5_3)
 			love.graphics.printf("SHOW INVIS", 64, 60, 160, "center")
 		elseif not self.game.grid.draw then
-			love.graphics.setFont(font_3x5_2)
+			love.graphics.setFont(font_8x11_small) -- VitaFix
 			love.graphics.printf("GRID IS UNDRAWABLE", 64, 60, 160, "center")
 		else
-			love.graphics.setFont(font_3x5_2)
+			love.graphics.setFont(font_8x11_small) -- VitaFix
 			love.graphics.printf("GRID IS NOT FOUND", 64, 60, 160, "center")
 		end
 	end
@@ -164,7 +166,7 @@ function ReplayScene:render()
 		pauses_y_coordinate = pauses_y_coordinate + 20
 		love.graphics.printf(self.replay_speed.."X", 0, 20, 635, "right")
 	end
-	love.graphics.setFont(font_3x5_2)
+	love.graphics.setFont(font_8x11_small) -- VitaFix
 	if self.game.pause_time and self.game.pause_count then
 		if self.game.pause_time > 0 or self.game.pause_count > 0 then
 			love.graphics.printf(string.format(

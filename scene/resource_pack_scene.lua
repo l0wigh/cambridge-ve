@@ -67,12 +67,14 @@ function ResourcePackScene:update()
 	if self.prev_selection_type ~= nil and self.prev_selection_type ~= self.selection_type then
 		playSE("cursor_lr")
 	end
-	local mouse_x, mouse_y = getScaledDimensions(love.mouse.getPosition())
-	if self.unselected_resource_packs_count > 7 then
-		self.left_menu_scrollbar:update(mouse_x, mouse_y)
-	end
-	if self.selected_resource_packs_count > 7 then
-		self.right_menu_scrollbar:update(mouse_x, mouse_y)
+	if love.mouse then -- VitaFix
+		local mouse_x, mouse_y = getScaledDimensions(love.mouse.getPosition())
+		if self.unselected_resource_packs_count > 7 then
+			self.left_menu_scrollbar:update(mouse_x, mouse_y)
+		end
+		if self.selected_resource_packs_count > 7 then
+			self.right_menu_scrollbar:update(mouse_x, mouse_y)
+		end
 	end
 	if self.mouse_control then
 		if self.left_menu_scrollbar_percentage and self.unselected_resource_packs_count > 7 then
@@ -181,36 +183,38 @@ function ResourcePackScene:render()
 		drawWrappingText(value, 360, 60 - self.right_menu_height + 40 * key, 240, "left")
 	end
 
-	local mouse_x, mouse_y = getScaledDimensions(love.mouse.getPosition())
-	if cursorHoverArea(40, 60, 240, 320) then
-		local resource_pack_index = math.floor((mouse_y + self.left_menu_height - 60) / 40)
-		if resource_pack_index > 0 and resource_pack_index <= self.unselected_resource_packs_count then
-			love.graphics.setColor(1, 1, 1, 0.5)
-			local box_offset = self.left_menu_height - (resource_pack_index * 40)
-			love.graphics.rectangle("fill", 35, 55 - box_offset, 250, 40)
-			local color_highlight = cursorHighlight(260, 60-box_offset, 40, 40)
-			love.graphics.setColor(1-color_highlight/2, 1-color_highlight/2, color_highlight/2, 1)
-			love.graphics.polygon("fill", 260,60-box_offset, 280,75-box_offset, 260,90-box_offset)
-		end
-	end
-	if cursorHoverArea(360, 60, 240, 320) then
-		local resource_pack_index = math.floor((mouse_y + self.right_menu_height - 60) / 40)
-		if resource_pack_index > 0 and resource_pack_index <= self.selected_resource_packs_count then
-			love.graphics.setColor(1, 1, 1, 0.5)
-			local box_offset = self.right_menu_height - (resource_pack_index * 40)
-			love.graphics.rectangle("fill", 355, 55 - box_offset, 250, 40)
-			local color_highlight = cursorHighlight(360, 60-box_offset, 20, 40)
-			love.graphics.setColor(1-color_highlight/2, 1-color_highlight/2, color_highlight/2, 1)
-			love.graphics.polygon("fill", 380,60-box_offset, 360,75-box_offset, 380,90-box_offset)
-			if resource_pack_index > 1 then
-				color_highlight = cursorHighlight(410, 60-box_offset, 40, 40)
+	if love.mouse then -- VitaFix
+		local mouse_x, mouse_y = getScaledDimensions(love.mouse.getPosition())
+		if cursorHoverArea(40, 60, 240, 320) then
+			local resource_pack_index = math.floor((mouse_y + self.left_menu_height - 60) / 40)
+			if resource_pack_index > 0 and resource_pack_index <= self.unselected_resource_packs_count then
+				love.graphics.setColor(1, 1, 1, 0.5)
+				local box_offset = self.left_menu_height - (resource_pack_index * 40)
+				love.graphics.rectangle("fill", 35, 55 - box_offset, 250, 40)
+				local color_highlight = cursorHighlight(260, 60-box_offset, 40, 40)
 				love.graphics.setColor(1-color_highlight/2, 1-color_highlight/2, color_highlight/2, 1)
-				love.graphics.polygon("fill", 410,85-box_offset, 450,85-box_offset, 430,65-box_offset)
+				love.graphics.polygon("fill", 260,60-box_offset, 280,75-box_offset, 260,90-box_offset)
 			end
-			if resource_pack_index < self.selected_resource_packs_count then
-				color_highlight = cursorHighlight(470, 60-box_offset, 40, 40)
+		end
+		if cursorHoverArea(360, 60, 240, 320) then
+			local resource_pack_index = math.floor((mouse_y + self.right_menu_height - 60) / 40)
+			if resource_pack_index > 0 and resource_pack_index <= self.selected_resource_packs_count then
+				love.graphics.setColor(1, 1, 1, 0.5)
+				local box_offset = self.right_menu_height - (resource_pack_index * 40)
+				love.graphics.rectangle("fill", 355, 55 - box_offset, 250, 40)
+				local color_highlight = cursorHighlight(360, 60-box_offset, 20, 40)
 				love.graphics.setColor(1-color_highlight/2, 1-color_highlight/2, color_highlight/2, 1)
-				love.graphics.polygon("fill", 470,65-box_offset, 510,65-box_offset, 490,85-box_offset)
+				love.graphics.polygon("fill", 380,60-box_offset, 360,75-box_offset, 380,90-box_offset)
+				if resource_pack_index > 1 then
+					color_highlight = cursorHighlight(410, 60-box_offset, 40, 40)
+					love.graphics.setColor(1-color_highlight/2, 1-color_highlight/2, color_highlight/2, 1)
+					love.graphics.polygon("fill", 410,85-box_offset, 450,85-box_offset, 430,65-box_offset)
+				end
+				if resource_pack_index < self.selected_resource_packs_count then
+					color_highlight = cursorHighlight(470, 60-box_offset, 40, 40)
+					love.graphics.setColor(1-color_highlight/2, 1-color_highlight/2, color_highlight/2, 1)
+					love.graphics.polygon("fill", 470,65-box_offset, 510,65-box_offset, 490,85-box_offset)
+				end
 			end
 		end
 	end

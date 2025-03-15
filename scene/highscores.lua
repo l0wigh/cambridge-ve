@@ -44,10 +44,14 @@ function HighscoreScene:new()
 end
 
 function HighscoreScene:update()
-	local mouse_x, mouse_y = getScaledDimensions(love.mouse.getPosition())
+	if love.mouse then -- VitaFix
+		local mouse_x, mouse_y = getScaledDimensions(love.mouse.getPosition())
+	end
 	if self.highscore_length > 17 then
 		local old_value = self.list_pointer
-		self.scrollbar:update(mouse_x, mouse_y)
+		if love.mouse then -- VitaFix
+			self.scrollbar:update(mouse_x, mouse_y)
+		end
 		if old_value ~= self.list_pointer then
 			playSE("cursor")
 		end
@@ -230,7 +234,7 @@ function HighscoreScene:render()
 	if self.empty_highscores then
 		love.graphics.setFont(font_3x5_3)
 		love.graphics.printf("There's no recorded highscores!", 0, 200, 640, "center")
-		love.graphics.setFont(font_3x5_2)
+		love.graphics.setFont(font_8x11_small) -- VitaFix
 		love.graphics.printf(
 			"Go play some modes, then come back!\n" ..
 			"Press or click anything to leave this menu.",
@@ -247,7 +251,7 @@ function HighscoreScene:render()
 		love.graphics.print("SELECT HIGHSCORE HASH", 80, 43)
 	end
 
-	love.graphics.setFont(font_3x5_2)
+	love.graphics.setFont(font_8x11_small) -- VitaFix
 	if type(self.hash_highscore) == "table" then
 		if self.highscore_length > 17 then
 			self.scrollbar:draw()

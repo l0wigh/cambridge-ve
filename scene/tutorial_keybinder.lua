@@ -154,7 +154,7 @@ function KeyConfigScene:render()
 
 	love.graphics.printf(self.visual_input_state > #configurable_inputs and "You've now configured." or self.failed_input_assignment_time > 0 and "Binding conflict, press something else." or input_description[configurable_inputs[self.visual_input_state]],
 	80, 200, 480, "center", 0, 1, math.min(1, math.abs(self.transition_time)))
-	love.graphics.setFont(font_3x5_2)
+	love.graphics.setFont(font_8x11_small) -- VitaFix
 	if self.input_mode == "key" then
 		love.graphics.printf("Input mode: Keyboard",
 		0, 440, 635, "right")

@@ -193,7 +193,7 @@ function StickConfigScene:render()
 		love.graphics.printf("Interact with a joystick to map inputs.", 160, 240, 320, "center")
 	end
 	self.list_y = interpolateNumber(self.list_y, -self.final_list_y)
-	love.graphics.setFont(font_3x5_2)
+	love.graphics.setFont(font_8x11_small) -- VitaFix
 	for i, input in ipairs(configurable_inputs) do
 		local g, b = 1, 1
 		local alpha = fadeoutAtEdges(self.list_y + (i-1) * self.spacing - 180, 180, self.spacing)
@@ -217,7 +217,7 @@ function StickConfigScene:render()
 	if self.joystick_name == null_joystick_name then
 		return
 	else
-		love.graphics.setFont(font_3x5_2)
+		love.graphics.setFont(font_8x11_small) -- VitaFix
 		love.graphics.print("Joystick: " .. self.joystick_name, 0, 20)
 	end
 	if self.erase_timer == 0 then

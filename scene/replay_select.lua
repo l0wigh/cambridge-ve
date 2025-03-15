@@ -169,7 +169,7 @@ function ReplaySelectScene:render()
 			"You have no replays.",
 			80, 200, 480, "center"
 		)
-		love.graphics.setFont(font_3x5_2)
+		love.graphics.setFont(font_8x11_small) -- VitaFix
 		love.graphics.printf(
 			"Come back to this menu after playing some games. " ..
 			"Press any button to return to the main menu.",
@@ -182,7 +182,7 @@ function ReplaySelectScene:render()
 			"You are missing this mode or ruleset.",
 			80, 200, 480, "center"
 		)
-		love.graphics.setFont(font_3x5_2)
+		love.graphics.setFont(font_8x11_small) -- VitaFix
 		love.graphics.printf(
 			"Come back after getting the proper mode or ruleset. " ..
 			"Press any button to return to the main menu.",
@@ -197,7 +197,7 @@ function ReplaySelectScene:render()
 		love.graphics.rectangle("fill", 3, 258 + (self.menu_state.replay * 20) - self.height_offset, 634, 22)
 	end
 	love.graphics.setColor(1, 1, 1, 1)
-	love.graphics.setFont(font_3x5_2)
+	love.graphics.setFont(font_8x11_small) -- VitaFix
 	if self.menu_state.submenu == 0 then
 		for idx, branch in ipairs(replay_tree) do
 			if(idx >= self.height_offset/20-10 and idx <= self.height_offset/20+10) then
@@ -207,7 +207,7 @@ function ReplaySelectScene:render()
 			end
 		end
 	elseif self.chosen_replay then
-		love.graphics.setFont(font_3x5_2)
+		love.graphics.setFont(font_8x11_small) -- VitaFix
 		love.graphics.setColor(1, 1, 0)
 		love.graphics.printf("Scrolling a list of replays is disabled.", 0, 10, 640, "center")
 		love.graphics.setColor(1, 1, 1)
@@ -216,14 +216,14 @@ function ReplaySelectScene:render()
 		if replay then
 			local idx = 0
 			if replay.ineligible then
-				love.graphics.setFont(font_3x5_2)
+				love.graphics.setFont(font_8x11_small) -- VitaFix
 				love.graphics.setColor(1, 1, 0, 1)
 				love.graphics.printf("This replay is ineligible for leaderboards", 0, 80, 640, "center")
 				love.graphics.setColor(1, 1, 1, 1)
 				idx = idx + 1
 			end
 			if replay.toolassisted then
-				love.graphics.setFont(font_3x5_2)
+				love.graphics.setFont(font_8x11_small) -- VitaFix
 				love.graphics.setColor(1, 1, 0, 1)
 				love.graphics.printf("This replay has likely used in-game TAS", 0, 80, 640, "center")
 				love.graphics.setColor(1, 1, 1, 1)
@@ -242,19 +242,19 @@ function ReplaySelectScene:render()
 				if replay.cambridge_version ~= version then
 					version_text_color = {1, 0, 0, 1}
 				end
-				love.graphics.setFont(font_3x5_2)
+				love.graphics.setFont(font_8x11_small) -- VitaFix
 				love.graphics.printf({"Cambridge version for this replay: ", version_text_color, replay.cambridge_version}, 0, 80 + idx * 20, 640, "center")
 			end
 			if replay.ruleset_override then
 				idx = idx + 1
-				love.graphics.setFont(font_3x5_2)
+				love.graphics.setFont(font_8x11_small) -- VitaFix
 				love.graphics.setColor(1, 1, 0, 1)
 				love.graphics.printf("This mode overrides the ruleset.", 0, 80 + idx * 20, 640, "center")
 				love.graphics.setColor(1, 1, 1, 1)
 			end
 			if replay.pause_count and replay.pause_time then
 				idx = idx + 1
-				love.graphics.setFont(font_3x5_2)
+				love.graphics.setFont(font_8x11_small) -- VitaFix
 				love.graphics.printf(("Pause count: %d, Time Paused: %s"):format(replay.pause_count, formatTime(replay.pause_time)), 0, 80 + idx * 20, 640, "center")
 			end
 			if replay.sha256_table then
@@ -271,7 +271,7 @@ function ReplaySelectScene:render()
 				love.graphics.setFont(font_3x5_3)
 				love.graphics.printf("Level: ".. replay["level"], 0, 100 + idx * 20, 640, "center")
 			else
-				love.graphics.setFont(font_3x5_2)
+				love.graphics.setFont(font_8x11_small) -- VitaFix
 				if self.error_msg then
 					love.graphics.setColor(0.5, 0.5, 0.5)
 				end
@@ -290,7 +290,7 @@ function ReplaySelectScene:render()
 				idx = idx + 0.8
 				local whiteness = -0.3 + self.frames_since_error / 30
 				love.graphics.setColor(1, whiteness, whiteness)
-				love.graphics.setFont(font_3x5_2)
+				love.graphics.setFont(font_8x11_small) -- VitaFix
 				love.graphics.printf("Replay has crashed! Error message:\n" .. self.error_msg, 0, 120 + idx * 20, 640, "center")
 				idx = idx + self.error_lines
 				
@@ -298,14 +298,14 @@ function ReplaySelectScene:render()
 				love.graphics.printf("RMB or " .. (config.input.keys.menu_back or "???")..": Return", 0, 140 + idx * 20, 640, "center")
 			else
 				love.graphics.setColor(1, 1, 1)
-				love.graphics.setFont(font_3x5_2)
+				love.graphics.setFont(font_8x11_small) -- VitaFix
 				love.graphics.printf("LMB or ".. (config.input.keys.menu_decide or "???") ..": Start\nRMB or " ..
 				(config.input.keys.menu_back or "???")..": Return\n Generic 1: Verify highscore data", 0, 140 + idx * 20, 640, "center")
 			end
 		end
 	else
 		if #replay_tree[self.menu_state.submenu] == 0 then
-			love.graphics.setFont(font_3x5_2)
+			love.graphics.setFont(font_8x11_small) -- VitaFix
 			love.graphics.printf(
 				"This submenu doesn't contain replays of this mode. ",
 				80, 250, 480, "center"

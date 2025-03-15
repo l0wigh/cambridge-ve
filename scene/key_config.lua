@@ -246,7 +246,7 @@ function KeyConfigScene:render()
 
 	if self.reconfiguration and not self.configurable_inputs then
 
-		love.graphics.setFont(font_3x5_2)
+		love.graphics.setFont(font_8x11_small) -- VitaFix
 		if self.wrong_type then
 			if self.error_time > 0 then
 				love.graphics.setColor(1, 0, 0, 1)
@@ -271,7 +271,7 @@ function KeyConfigScene:render()
 	end
 
 	self.list_y = interpolateNumber(self.list_y, -self.final_list_y)
-	love.graphics.setFont(font_3x5_2)
+	love.graphics.setFont(font_8x11_small) -- VitaFix
 	for i, input in ipairs(self.configurable_inputs) do
 		local g, b = 1, 1
 		local alpha = fadeoutAtEdges(self.list_y + (i-1) * self.spacing - 180, 180, self.spacing)

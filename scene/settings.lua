@@ -60,7 +60,7 @@ function SettingsScene:render()
 	love.graphics.printf("<-", font_3x5_4, 20, 40, 50, "center")
 	love.graphics.setColor(1, 1, 1, 1)
 
-	love.graphics.setFont(font_3x5_2)
+	love.graphics.setFont(font_8x11_small) -- VitaFix
 	love.graphics.print("Here, you can change some settings that change\nthe look and feel of the game.", 80, 90)
 
 	love.graphics.setColor(1, 1, 1, 0.5)
