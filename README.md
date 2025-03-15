@@ -12,7 +12,7 @@ The [Discord server][discord] has been reopened!
 Playing the game
 ----------------
 
-## PSVita
+### PSVita
 
 Use `dist/vita_release.sh` to create the `game.love`.
 
