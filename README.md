@@ -1,6 +1,6 @@
 ![Cambridge Banner](https://t-sp.in/public/img/cambridge.png)
 
-Cambridge
+Cambridge Vita Edition
 =========
 
 Welcome to Cambridge, the next open-source falling-block game engine!
@@ -12,53 +12,11 @@ The [Discord server][discord] has been reopened!
 Playing the game
 ----------------
 
-### Windows
+## PSVita
 
-You do not need LÖVE on Windows, as it comes bundled with the program.
+Use `dist/vita_release.sh` to create the `game.love`.
 
-#### Stable release
-
-To get the stable release, simply download either `cambridge_windows_x86.zip` (32-bit, x86) or `cambridge_windows_x64.zip` (64-bit, x86-64) in the [latest release](https://github.com/cambridge-stacker/cambridge/releases/latest).
-
-All assets needed are bundled with the executable.
-
-#### Bleeding edge
-
-If you want the bleeding edge version, download [this](https://github.com/cambridge-stacker/cambridge/archive/master.zip). Extract the ZIP to a folder of your choosing.
-
-If you're on Windows, you can double-click `start.bat` to run the game. If that doesn't work, open a Command Prompt where you extracted Cambridge and run:
-
-	dist\windows\love.exe .
-
-If that doesn't work, run this instead, still using Command Prompt where you extracted Cambridge:
-
-	dist\win32\love.exe .
-
-Then, check the mod pack section at the bottom of this page.
-
-### macOS, Linux
-
-If you haven't already, install `love` with your favourite package manager (Homebrew on macOS, your system's default on Linux). **Make sure you're not using LÖVE 11.4, because it's been proven to randomly freeze Cambridge!**
-
-#### Downloading a release
-
-You can download the .love file in the latest release, and run it with:
-
-    love cambridge.love
-
-#### Installing from source
-
-Clone the repository in git:
-
-	git clone https://github.com/cambridge-stacker/cambridge
-
-Alternatively, download the source code ZIP in the latest release.
-
-Then, navigate to the root directory that you just cloned, and type:
-
-	love .
-
-It should run automatically!
+Then follow the instructions on [Cambridge-Vita](https://github.com/L0Wigh/Cambridge-Vita) to complete the installation.
 
 ## Installing modpacks
 
