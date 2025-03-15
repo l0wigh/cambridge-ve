@@ -22,6 +22,12 @@ Then follow the instructions on [Cambridge-Vita](https://github.com/L0Wigh/Cambr
 
 For instructions on how to install modpacks, go to [this](https://github.com/cambridge-stacker/cambridge-modpack) mod pack to get a taste of the mod potential.
 
+Known Issues
+------------
+
+There is issues with backgrounds and fonts right now. Only one background can be loaded safely.
+Font might fail at random time. Currently it's been mitigated but I need to find a full fix.
+
 License
 -------
 
