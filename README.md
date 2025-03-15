@@ -14,7 +14,7 @@ Playing the game
 
 ### PSVita
 
-Use `dist/vita_release.sh` to create the `game.love`.
+Clone the repo and use `dist/vita_release.sh` to create the `game.love`.
 
 Then follow the instructions on [Cambridge-Vita](https://github.com/L0Wigh/Cambridge-Vita) to complete the installation.
 
