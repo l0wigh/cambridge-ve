@@ -260,7 +260,7 @@ end
 ---@param h number
 ---@return boolean
 function cursorHoverArea(x,y,w,h)
-	if t.modules.mouse then
+	if love.mouse ~= nil then
 		local mouse_x, mouse_y = getScaledDimensions(love.mouse.getPosition())
 		return (mouse_x > x and mouse_x < x+w and mouse_y > y and mouse_y < y+h)
 	else -- VitaFix

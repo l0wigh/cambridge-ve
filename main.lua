@@ -358,7 +358,7 @@ function love.draw()
 		)
 	end
 
-	if scene.title == "Game" or scene.title == "Replay" or t.modules.mouse == false then -- VitaFix
+	if scene.title == "Game" or scene.title == "Replay" or love.mouse == nil then -- VitaFix
 	else
 		love.mouse.setVisible(config.visualsettings.cursor_type == 1)
 		if config.visualsettings.cursor_type ~= 1 then

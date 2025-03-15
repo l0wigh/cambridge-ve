@@ -7,7 +7,7 @@ GameScene.title = "Game"
 require 'load.save'
 
 function GameScene:new(game_mode, ruleset, inputs)
-	if t.modules.mouse then
+	if love.mouse then
 		love.mouse.setVisible(true)
 	end
 	self.retry_mode = game_mode
